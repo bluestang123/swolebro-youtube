@@ -281,11 +281,20 @@ void loop() {
   // Print the number of seconds since reset and value comming from pin1
        //lcd.print(millis()/1000) //lcd example file;
   //Print the voltage it currently reads from plasma pin A1
+  //lcd.setCursor(0, 2);
+ // lcd.print (diff * SCALE);
+ 
+ //Print the voltage it currently reads from plasma pin A1
+  if (!j) {
   lcd.setCursor(0, 2);
-  lcd.print (diff * SCALE);
+  lcd.print ( (float) ((disp / DISP) * SCALE), 1 );
+  disp = 1;
+
+  }
 
   // Need this to keep the display lit up.
 //  sevseg.refreshDisplay();
+
 
   // Faster than modular arithmetic, by far. Doing that drops us down to ~3kS/sec.
   i = (i + 1) & (SAMP - 1);
