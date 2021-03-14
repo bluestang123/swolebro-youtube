@@ -197,6 +197,11 @@ void setup() {
   total = 0;
   i = 0;
   j = 1; // Keeps display from triggering until we've done BUFSIZE samples.
+  
+  // Print the set number Pin A0---new----
+ 
+  lcd.setCursor(0, 1);
+  lcd.print (tmp * SCALE);
 }
 
 
@@ -274,12 +279,9 @@ void loop() {
   
   // Print the number of seconds since reset and value comming from pin1
        //lcd.print(millis()/1000) //lcd example file;
-  // Print the set number Pin A0
-  lcd.setCursor(0, 1);
-  lcd.print (target); 
   //Print the voltage it currently reads from plasma pin A1
   lcd.setCursor(0, 2);
-  lcd.print (disp);
+  lcd.print (diff * SCALE);
 
   // Need this to keep the display lit up.
 //  sevseg.refreshDisplay();
